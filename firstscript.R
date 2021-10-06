@@ -29,3 +29,28 @@ print(q)
 mat[1,2]
 mat[2,]
 mean(mat)
+# Learning data frames
+
+t <- data.frame(x <- c(11,12,14), y <- c(19,20,21), z <- c(10,9,7))
+t
+t
+mean(t$z....c.10..9..7.)
+mean(t$z....c.10..9..7.)
+mean(t[["z....c.10..9..7."]])
+
+
+t <- data.frame(x = c(11,12,14), y = c(19,20,21), z = c(10,9,7))
+t
+t
+mean(t$z)
+mean(t[["z"]])
+x1 <- rnorm(100)
+x1
+x2 <- rnorm(100)
+x2
+x3 <- rnorm(100)
+x3
+t <- data.frame(a = x1, b = x1 + x2, c = x1 + x2 + x3)
+is.data.frame(t)
+plot(t)
+sd(t$c)
