@@ -51,6 +51,8 @@ x2
 x3 <- rnorm(100)
 x3
 t <- data.frame(a = x1, b = x1 + x2, c = x1 + x2 + x3)
+# make a data fram but need this line is.data.frame(t) for it to run
 is.data.frame(t)
 plot(t)
 sd(t$c)
+mean(t$c)
