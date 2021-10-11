@@ -63,9 +63,9 @@ L
 # Learning graphics the good stuff key words, par, rgb,lwd,pch and cex
 # par means parameter
 # rgb creates colors based on intensities
-# lwd not sure
-# pch adds points to a plot
-# cex not sure
+# lwd line width
+# pch point type, circle, triangle,etc.
+# cex all elements
 
 plot (rnorm (1000), type="l", col="gold")
 hist(rnorm(1000))
@@ -73,9 +73,41 @@ plot(t$a, type="l", ylim=range(t), lwd=3, col=rgb(1,0,0,0.3))
 lines(t$b, type = "s", lwd=2, col=rgb(0.3, 0.4, 0.3, 0.9))
 points(t$c, pch=20, cex=4, col=rgb(0,0,1,0.3))
 
-# not sure why I don't have any changes to commit so move on to reading and writing data files
+# not sure why I don't have any changes to commit so move on to reading and writing data files because i did'nt check the file!
 
 d = data.frame(a = c(3,4,5), b = c(12,43,54))
 d
 is.data.frame(d)
 d
+# Write.table saves the file.  If you want to change it and saveas a new file you write the change then write.table again you copy the whole file
+write.table(d, file="tst0.txt", row.names=FALSE)
+d2 = read.table(file="tst0.txt", header=TRUE)
+d2
+p= seq(from = 31, to=60, by=1)
+q= matrix(data = p, nrow = 6, ncol = 5)
+rm(list=ls())
+d = data.frame (a = c(1,2,4,8,16,32), g = c(2,4,8,16,32,64), x = c(3,6,12,24,48,96))
+write.table(d, file="tst1.txt", col.names = TRUE, row.names = FALSE)
+d2 = read.table(file="tst1.txt", header = TRUE)
+d2
+class(d2)
+d2["2",]
+d2[ , "g"]
+d2["2", "g"]
+d[2,2]
+d2[, 'g']
+d2[,2]
+
+d2[,"g"] <- d2[,"g"]*5
+write.table(d2, file="tst2.txt",col.names = TRUE, row.names = FALSE)
+
+d2
+d2[2,3] <- "hello"
+d2
+# What happens when you ask to compute something that is NA, if you want it to skip the NA values use na.rm=TRUE
+
+vec1 = rnorm(100)
+sqrt(vec1)
+vec2 = sqrt(vec1)
+mean(vec2)
+mean(vec2, na.rm=TRUE)
